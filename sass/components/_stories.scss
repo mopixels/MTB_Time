@@ -1,0 +1,98 @@
+.story {
+    position: relative;
+    height: 85vh;
+    border-bottom: 3px solid $color-grey-dark-3;
+
+    &__picture {
+        position: absolute;
+        z-index: 10;
+        filter: blur(5px);
+        transition: all .3s ease;
+        height: 101%;
+
+        &--1 {
+            left:0;
+            @include bendPicture;
+
+            &:hover{
+                filter: none;
+                transform: scale(1.15) translate(10%, -5%);
+                z-index: 30;
+                @include removeClipPath;
+
+                @include responsive(tab-vert) {
+                    transform: scale(.95) translate(10%);
+                }
+
+                @include responsive(phone) {
+                    transform: scale(.85) translate(-16.5%);
+                }
+            }
+        }
+
+        &--2 {
+            left:25%;
+            @include bendPicture;
+
+            @include responsive(big-desktop) {
+                transform: scale(1.3);
+            }
+
+            &:hover{
+                filter: none;
+                transform: scale(1.15) translate(0, -5%);
+                z-index: 30;
+                @include removeClipPath;
+
+                @include responsive(tab-vert) {
+                    transform: scale(.95);
+                }
+
+                @include responsive(phone) {
+                    transform: scale(.85) translate(-35%);
+                }
+            }
+        }
+
+        &--3 {
+            left:50%;
+            @include bendPicture;
+
+            &:hover{
+                filter: none;
+                transform: scale(1.15) translate(-10%, -5%);
+                z-index: 30;
+                @include removeClipPath;
+
+                @include responsive(tab-vert) {
+                    transform: scale(.95) translate(-30%);
+                }
+
+                @include responsive(phone) {
+                    transform: scale(.85) translate(-55%);
+                }
+            }
+        }
+
+        &--4 {
+            left:75%;
+            @include bendPicture;
+
+            &:hover{
+                filter: none;
+                transform: scale(1.15) translate(-27%);
+                z-index: 30;
+                
+                @include removeClipPath;
+
+                @include responsive(tab-vert) {
+                    transform: scale(.95) translate(-60%);
+                }
+
+                @include responsive(phone) {
+                    transform: scale(.85) translate(-70%);
+                }
+            }
+        }
+    }
+}

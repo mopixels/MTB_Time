@@ -1,0 +1,46 @@
+@mixin clearfix {
+    &::after {
+         content: "";
+         display: table;
+         clear: both;
+    }
+ }
+ 
+ @mixin absCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);   
+ }
+
+ @mixin bendPicture {
+   @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 10% 50%);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 10% 50vh);
+  }
+}
+
+ @mixin removeClipPath {
+   @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      -webkit-clip-path: none;
+      clip-path: none;
+  }
+}
+
+ @mixin responsive($breakpoint) {
+    @if $breakpoint == phone {
+       @media only screen and (max-width: 37.5em) { @content };  // 600px
+    }
+ 
+    @if $breakpoint == tab-vert {
+       @media only screen and (max-width: 56.25em) { @content };    // 900px
+    }
+ 
+    @if $breakpoint == tab-hori {
+       @media only screen and (max-width: 75em) { @content };    // 1200px
+    }
+ 
+    @if $breakpoint == big-desktop {
+       @media only screen and (min-width: 112.5em) { @content };     // 1800px
+    }
+ }

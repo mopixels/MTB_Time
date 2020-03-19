@@ -1,0 +1,45 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    background-image: 
+    linear-gradient(
+        to right, 
+        rgba($color-white, .8),
+        rgba($color-white, .8)), 
+    url(../img/mud-splash.jpg);
+    background-size: cover;
+
+
+    // defining 1rem
+    font-size: 62.5%; //1rem = 10px/16px = 62.5%
+
+
+    @include responsive(tab-hori) { // width < 1200
+        font-size: 56.25%;  //1rem = 9px 9/16 = 56.25%
+    }
+
+    @include responsive(tab-vert) { //width < 900
+        font-size: 50%; // 1rem = 8px 8/16 = 50%
+    }
+
+    @include responsive(big-desktop) {
+        font-size: 75%; // 1rem = 12px 12/16
+    }
+}
+
+body {
+    box-sizing: border-box;
+    padding: 3rem;
+
+
+    @include responsive(tab-vert) {
+        padding: 0; 
+    }
+
+}

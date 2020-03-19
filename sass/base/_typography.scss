@@ -1,0 +1,154 @@
+body {
+    font-family: "Passion One", cursive;
+    line-height: 1.3;
+    color: $color-white;
+}
+
+.heading-primary {
+    color: $color-white;
+    backface-visibility: hidden;
+    margin-bottom: 5rem;
+
+    &--main {
+        display: block;
+        font-size: 8rem;
+        font-weight: 400;
+        letter-spacing: 2.5rem;
+    
+        animation-name: moveInLeft;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+
+        @include responsive(phone) {
+           letter-spacing: 1rem;
+
+        }
+    }
+    
+    &--sub {
+        text-transform: uppercase;
+        display: block;
+        font-size: 2.5rem;
+        letter-spacing: 1.4rem;
+    
+        animation: moveInBottom 1s ease-out;
+
+        @include responsive(tab-hori) {
+            letter-spacing: .7rem;
+            font-size: 3rem;
+        }
+    }
+}
+
+.heading-secondary {
+    font-size: 5rem;
+    letter-spacing: 2px;
+    display: inline-block;
+    margin-top: 3rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    
+    background-image: linear-gradient(to right, $color-green-light, $color-olive);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+
+    &-white {
+        color: $color-white;
+        font-size: 4rem;
+        letter-spacing: 2px;
+        display: inline-block;
+        margin-top: 3rem;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+}
+
+.heading-third {
+    font-size: 4rem;
+    font-weight: 700;
+
+    background-image: linear-gradient(to right, $color-green-light, $color-olive-light);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    @include responsive(tab-vert) {
+        font-size: 3.5rem;
+    }
+}
+
+.heading-fourth {
+    color: $color-grey-dark-2;
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+.heading-big {
+    @include absCenter;
+    position: absolute;
+    z-index: 20;
+    pointer-events: none; // to not inverneve with pictures hover
+    font-weight: 700;
+
+    color: $color-white;
+    background: url(../img/horizon-forest.jpg);
+    background-position: center;
+    background-size: 150%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    @include responsive(phone) {
+        background-size: 100%;
+        background-position: bottom;
+    }
+
+    &--top {
+        display: block;
+        font-size: 20rem;
+        letter-spacing: 2.5rem;
+    
+        animation: moveInLeft 1s ease-out;
+
+        @include responsive(phone) {
+            font-size: 12rem;
+            letter-spacing: 1rem;
+        }
+
+    }
+
+    &--bottom {
+        text-transform: uppercase;
+        display: block;
+        font-size: 14rem;
+        letter-spacing: 1.1rem;
+    
+        animation: moveInLeft 1.2s ease-out;
+
+        @include responsive(tab-hori) {
+            letter-spacing: 1rem;
+        }
+
+        @include responsive(phone) {
+            font-size: 10rem;
+            letter-spacing: 1rem;
+        }
+    }
+}
+
+.paragraph {
+
+    color: $color-grey-dark;
+    font-size: $default-font-size;
+    text-align: justify;
+
+    &:not(:last-child){
+        margin-bottom: 3rem;
+    }
+
+    @include responsive(tab-vert) {
+        font-size: 2.5rem;
+    }
+}

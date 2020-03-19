@@ -1,0 +1,214 @@
+.card {
+
+    //functionality
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+    height: 52rem;
+
+    &__side {
+        height: 52rem;
+        transition: all .8s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border-radius: 3px;
+        overflow: hidden; // making border-radius visible 
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+        &--front {
+            background-size: cover;
+
+            &-1 {
+                background-image: url(../img/beginner.jpg);
+            }
+    
+            &-2 {
+                background-image: url(../img/intermediate.jpg);
+            }
+            
+            &-3 {
+                background-image: url(../img/advanced.jpg);
+            }
+
+        }
+
+        &--back {
+            transform: rotateY(180deg);
+
+            &-1 {
+                background-image: linear-gradient(to right bottom, $color-card1-light, $color-card1-dark);
+            }
+
+            &-2 {
+                background-image: linear-gradient(to right bottom, $color-card2-light, $color-card2-dark);
+            }
+
+            &-3 {
+                background-image: linear-gradient(to right bottom, $color-card3-light, $color-card3-dark);
+            }
+        }
+    }
+
+    &:hover &__side--front {
+        transform: rotateY(-180deg);
+    }
+
+    &:hover &__side--back {
+        transform: rotateY(0);
+    }
+
+    //FRONT SIDE STYLE
+
+    &__heading {
+        font-size: 3.5rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align: right;
+        color: $color-white;
+        position: absolute;
+        top: 6rem;
+        right: 2rem;
+        width: 75%;
+    }
+
+    &__heading-span {
+        padding: 1rem 1.5rem;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+
+        &--1 {
+            background-image: linear-gradient(to right bottom, 
+            rgba($color-card1-light, .85), 
+            rgba($color-card1-dark, .85));
+        }
+
+        &--2 {
+            background-image: linear-gradient(to right bottom, 
+            rgba($color-card2-light, .85), 
+            rgba($color-card2-dark, .85));
+        }
+
+        &--3 {
+            background-image: linear-gradient(to right bottom, 
+            rgba($color-card3-light, .85), 
+            rgba($color-card3-dark, .85));
+        }
+    }
+
+    &__details {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        height: 20rem;
+        -webkit-clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+        background-color: rgba($color-white, .7);
+        background-blend-mode: screen;
+
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+
+        color: $color-grey-dark-2;
+        padding: 3rem;
+
+        ul {
+            list-style: none;
+            width: 85%;
+            margin: 0 auto;
+
+            li {
+                text-align: center;
+                font-size: $default-font-size;;
+                padding: 1rem;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid $color-grey-dark;
+                }
+            }
+        }
+    }
+
+    //BACK SIDE 
+
+    &__cta {
+        position: absolute;
+        @include absCenter;
+        width: 90%;
+        text-align: center;
+    }
+
+    &__price-box {
+        text-align: center;
+        color: $color-white;
+        margin-bottom: 8rem;
+    }
+
+    &__price-only {
+        font-size: $default-font-size;
+        text-transform: uppercase;
+    }
+
+    &__price-value {
+        font-size: 6rem;
+        font-weight: 100;
+    }
+
+
+
+    @media only screen and (max-width: 56.25em) {
+
+        border-radius: 3px;
+        background-color: $color-white;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+        &__side {
+
+            position: relative;
+            box-shadow: none;
+            margin: auto;
+
+            &--front-2, &--front-3 {
+                margin-top: 22rem;
+            }
+
+            &--back {
+                height: auto;
+                margin-top: -4rem;
+                transform: rotateY(0);
+                clip-path: polygon(0 15%, 100% 0%, 100% 100%, 0% 100%);
+            }
+        }
+
+        &:hover &__side--front {
+            transform: rotateY(0);
+        }
+
+
+        &__details {
+            height: 20rem;
+            padding: 2.5rem;
+        }
+
+        // FRONT SIDE STYLING
+        &__cta {
+            position: relative;
+            top: 0%;
+            left: 0;
+            transform: translate(0);
+            width: 100%;
+            padding: 5rem 4rem 4rem 4rem;
+        }
+
+        &__price-box {
+            margin-bottom: 3rem;
+        }
+
+        &__price-value {
+            font-size: 4rem;
+        }
+    }
+}

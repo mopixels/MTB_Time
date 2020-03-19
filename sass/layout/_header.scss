@@ -1,0 +1,48 @@
+.header {
+    background-image: 
+        linear-gradient(to right bottom, 
+            rgba($color-white, 0.2),
+            rgba($color-white, 0)), 
+        url(../img/forest-drone.jpg);
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    border-top-left-radius: 5rem;
+    border-top-right-radius: 5rem;
+    
+
+
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+        -webkit-clip-path: polygon(20% 0, 100% 0, 100% 50%, 80% 100%, 0 100%, 0 50%);
+        clip-path: polygon(0 0, 100% 0, 100% 50%, 90% 100%, 0 100%, 0 50%);
+        height: 95vh;
+    }
+
+    @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em), //600px
+            only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+            only screen and (min-width: 125em) { //2000px
+        background-image: 
+            linear-gradient(to right bottom, 
+                rgba($color-white, 0.2),
+                rgba($color-white, 0)), 
+            url(../img/forest-drone.jpg);
+        border-top-left-radius: 0rem;
+        border-top-right-radius: 0rem;
+    }
+    
+    &__logo-box {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+
+    &__logo {
+        height: 6rem;
+    }
+
+    &__text-box {
+        position: absolute;
+        @include absCenter;
+        text-align: center;
+    }
+}
